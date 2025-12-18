@@ -1,5 +1,6 @@
 "use client";
 import Protected from "@/components/auth/Protected";
+import ProtectedWithShell from "@/components/auth/ProtectedWithShell";
 import { useMeQuery, useLogoutMutation } from "@/features/auth/authApi";
 
 export default function DashboardPage() {
@@ -7,7 +8,7 @@ export default function DashboardPage() {
   const [logout, { isLoading: loggingOut }] = useLogoutMutation();
 
   return (
-    <Protected>
+    <ProtectedWithShell>
       <div className="p-6 max-w-2xl mx-auto space-y-4">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-semibold">Dashboard</h1>
@@ -30,6 +31,6 @@ export default function DashboardPage() {
           </div>
         )}
       </div>
-    </Protected>
+    </ProtectedWithShell>
   );
 }
